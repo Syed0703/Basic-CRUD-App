@@ -1,0 +1,117 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    /* background-color: rgb(10, 10, 49); */
+}
+
+.box{
+    /* border: 2px solid #ccc; */
+    width: 80vw;
+    height: max-content;
+    border-radius: 3px;
+    /* background-color: white; */
+}
+
+/* .header{
+    margin: 10px;
+} */
+
+.header h1{
+    font-size: 25px;
+}
+
+.createBtn{
+    background-color: rgb(47, 146, 47);
+    color: white;
+    border: none;
+    height: 30px;
+    width: 90px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.createBtn:hover{
+    background-color: rgb(36, 114, 36);
+}
+
+.input-section{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0px;
+}
+
+.searchBtn{
+    border-radius: 4px;
+    width: 70px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #ccc;
+    margin-left: 3px;
+    border: none;
+}
+
+.searchInput{
+    width: 300px;
+    height: 30px;
+}
+
+.searchBtn:hover{
+    background-color: #a5a5a5;
+}
+
+.id{
+    width: 50px;
+}
+.name{
+    width: 400px;
+}
+.age{
+    width: 100px;
+}
+.city{
+    width: 300px;
+}
+.edit{
+    width: 81px;
+}
+.delete{
+    width: 81px;
+}
+
+.editBtn{
+    background-color: rgb(63, 63, 248);
+    color: white;
+    width: 50px;
+    height: 25px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+}
+
+.editBtn:hover{
+    background-color: rgb(38, 38, 134);
+}
+
+.deleteBtn{
+    background-color: rgb(255, 62, 62);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+}
+
+.deleteBtn:hover{
+    background-color: rgb(180, 47, 47);
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 8px;
+    text-align: center;
+  }
