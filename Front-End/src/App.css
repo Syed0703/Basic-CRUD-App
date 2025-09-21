@@ -115,3 +115,21 @@ table, th, td {
     padding: 8px;
     text-align: center;
   }
+
+
+.createSection{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.input{
+    width: 300px;
+    height: 30px;
+    margin-right: 8px;
+}
+.inputs input:nth-child(3){
+    margin-right: 0;
+}
+
+

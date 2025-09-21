@@ -7,11 +7,21 @@ mongoose.connect("mongodb://localhost:27017/crudApp").then(()=>{
 })
 
 const userSchema = new mongoose.Schema({
-    id: Number,
-    name: String,
-    age: Number,
-    city: String,
+
+    name: {
+        required: true,
+        type: String
+    },
+
+    age: {
+        required: true,
+        type: Number
+    },
+    city: {
+        required: true,
+        type: String
+    }
 });
 
-const user = new mongoose.model('User', userSchema);
-module.exports = user;
+const userModel = new mongoose.model('User', userSchema);
+module.exports = userModel;
