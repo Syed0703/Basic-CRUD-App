@@ -133,3 +133,19 @@ table, th, td {
 }
 
 
+.editNameInput{
+    width: 300px;
+    height: 25px;
+}
+
+.editAgeInput{
+    width: 50px;
+    height: 25px;
+}
+
+.editCityInput{
+    width: 200px;
+    height: 25px;
+}
+
+

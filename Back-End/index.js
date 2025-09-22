@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const userModel = require('./database');
-const { Mongoose } = require('mongoose');
+// const { Mongoose } = require('mongoose');
 
 const app = express();
 
@@ -30,6 +30,37 @@ app.post('/data', async (req,res) => {
     catch(error){
         console.log(erroe)
         res.status(500).json({message : error.message})
+    }
+})
+
+app.delete('/data/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        await userModel.findByIdAndDelete(id)
+        res.status(204).end()
+    } 
+    catch (error) {
+        res.status(500).json({message :error.message})
+    }
+    
+})
+
+
+app.put('/data/:id', async (req, res) => {
+    try {
+        const {name, age, city} = req.body;
+        const id = req.params.id;
+        const updatedUser = await userModel.findByIdAndUpdate(id,
+            {name, age, city},
+            {new : true}
+        )
+        if(!updatedUser){
+            return res.status(404).json({message: "Data not found"})
+        }
+        res.json(updatedUser);
+        
+    } catch (error) {
+        res.status(500).json({message: error.message});
     }
 })
 
