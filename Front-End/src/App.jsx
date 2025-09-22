@@ -13,6 +13,8 @@ function App() {
   const [editName, setEditName] = useState("");
   const [editAge, setEditAge] = useState(-1);
   const [editCity, setEditCity] = useState("");
+  const [searchData, setSearchData] = useState([])
+  const [search, setSearch] = useState("")
 
   const url = "http://localhost:3000";
 
@@ -113,7 +115,19 @@ function App() {
     setEditCity("");
     setEditAge(0);
     setEditCity("");
-  };
+  }
+
+  const handleSearchData = () => {
+  if (search.trim() !== "") {
+    fetch(`${url}/data/search?q=${encodeURIComponent(search)}`)
+      .then((res) => res.json())
+      .then((res) => setData(res)) // Replace full data with search results
+      .catch((err) => console.error("Search error:", err));
+  } else {
+    getData(); // Reset to full list if search is cleared
+  }
+};
+
 
   return (
     <>
@@ -158,8 +172,11 @@ function App() {
                     className="searchInput"
                     type="text"
                     placeholder="Search"
+                    onChange={(e) => setSearch(e.target.value)}
                   />
-                  <button className="searchBtn">Search</button>
+                  <button className="searchBtn" onClick={handleSearchData}>Search</button>
+                  <button className="resetBtn" onClick={getData}>Reset</button>
+
                 </div>
                 <div>
                   <button className="createBtn" onClick={handleCreateNew}>

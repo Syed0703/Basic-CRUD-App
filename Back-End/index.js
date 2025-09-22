@@ -64,6 +64,21 @@ app.put('/data/:id', async (req, res) => {
     }
 })
 
+app.get("/data/search", async (req, res) => {
+  const { q } = req.query;
+  try {
+    const results = await userModel.find({
+      $or: [
+        { name: { $regex: q, $options: "i" } },
+        { city: { $regex: q, $options: "i" } }
+      ]
+    });
+    res.json(results);
+  } catch (err) {
+    res.status(500).json({ error: "Search failed", details: err.message });
+  }
+});
+
 app.listen(port , () => {
     console.log(`Server Started at port: ${port}`)
 })
